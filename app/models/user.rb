@@ -3,10 +3,10 @@ class User < ApplicationRecord
   attr_accessor :remember_token
   validates :name,  presence: true, length: {maximum: 25}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, length: {maximum: 50},
+  validates :email, presence: true, length: {maximum: 70},
     format: {with: VALID_EMAIL_REGEX},uniqueness: {case_sensitive: false}
   has_secure_password
-  validates :password, presence: true, length: {minimum: 6}
+  validates :password, presence: true, length: {minimum: 6}, allow_nil: true
 
   def User.digest string
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -24,7 +24,7 @@ class User < ApplicationRecord
   end
 
   def authenticated? remember_token
-    return false if remember_digest.nil?
+    return unless remember_digest
     BCrypt::Password.new(remember_digest).is_password? remember_token
   end
 
