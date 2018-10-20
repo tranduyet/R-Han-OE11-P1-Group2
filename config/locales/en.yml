@@ -58,7 +58,7 @@ en:
       this: "This will be a signup page for new users"
       create: "Create my account"
       confirm: "Confirmation"
-    create:
+    show:
       welcome: "Welcome to the Sample App!"
       user_not_found: "User not found"
       failed: "Failed"
@@ -72,5 +72,6 @@ en:
       log: "Log in"
       new: "New user?"
       sign_up: "Sign up now!!"
+      remember: "Remember me on this computer"
     create:
       invalidemail_passcom: "Invalid email/password combination"
