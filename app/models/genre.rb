@@ -1,3 +1,5 @@
 class Genre < ApplicationRecord
-  has_many :rela_genre_manga
+  has_many :mangaks
+  validates :name, presence: true,
+    length: {maximum: 25}
 end

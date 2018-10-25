@@ -1,3 +1,3 @@
 class Status < ApplicationRecord
-  has_many :mangak
+  has_many :mangaks
 end

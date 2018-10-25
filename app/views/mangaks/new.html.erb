@@ -1,0 +1,22 @@
+<% provide :title, t(".create") %>
+<h1><%= t ".create_manga" %></h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@mangak) do |f| %>
+
+      <%= f.label "Name manga" %>
+      <%= f.text_field :name, class: "form-control" %>
+      <div class="field">
+        <%= f.label "Description" %>
+        <%= f.text_area :description, class: "form-control" %>
+      </div>
+
+      <span class="picture">
+      <%= f.label "Avatar" %>
+      <%= f.file_field :picture %>
+      </span>
+
+      <%= f.submit "create" %>
+    <% end %>
+  </div>
+</div>

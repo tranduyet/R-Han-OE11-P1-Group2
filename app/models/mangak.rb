@@ -1,7 +1,9 @@
 class Mangak < ApplicationRecord
-  belongs_to :user
+  has_many :chapters
   belongs_to :author
-  belongs_to :status
-  has_many :chapter
-  has_many :rela_genre_manga
+  belongs_to :genre
+  validates :name, presence: true,
+    length: {maximum: 25}
+  validates :description, presence: true, length: {maximum: 250}
+  mount_uploader :picture, PictureUploader
 end

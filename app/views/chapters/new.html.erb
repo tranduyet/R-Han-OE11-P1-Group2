@@ -1,0 +1,17 @@
+<% provide :title, @mangk.name %>
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@chapter) do |f| %>
+
+      <%= f.label "Name chapter" %>
+      <%= f.text_field :name, class: "form-control" %>
+
+      <%= f.label "Description" %>
+      <%= f.text_field :description, class: "form-control" %>
+
+
+
+      <%= f.submit "create" %>
+    <% end %>
+  </div>
+</div>
+
