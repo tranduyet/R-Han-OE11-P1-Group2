@@ -5,5 +5,7 @@ class Mangak < ApplicationRecord
   validates :name, presence: true,
     length: {maximum: 25}
   validates :description, presence: true, length: {maximum: 250}
+  validates :author_id, presence: true
+  validates :genre_id, presence: true
   mount_uploader :picture, PictureUploader
 end

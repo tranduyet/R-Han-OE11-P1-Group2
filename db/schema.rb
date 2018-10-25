@@ -13,17 +13,20 @@
 ActiveRecord::Schema.define(version: 2018_10_24_094157) do
 
   create_table "authors", force: :cascade do |t|
-    t.string "name_author"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "chapters", force: :cascade do |t|
+    t.integer "mangak_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["mangak_id"], name: "index_chapters_on_mangak_id"
   end
 
   create_table "genres", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -37,8 +40,12 @@ ActiveRecord::Schema.define(version: 2018_10_24_094157) do
     t.string "name"
     t.text "description"
     t.string "picture"
+    t.integer "author_id"
+    t.integer "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_mangaks_on_author_id"
+    t.index ["genre_id"], name: "index_mangaks_on_genre_id"
   end
 
   create_table "rela_genre_mangas", force: :cascade do |t|

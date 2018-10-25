@@ -10,3 +10,8 @@ User.create! name:  "Duyet Tran", email: "duyettran0608@gmail.com",
     password: password, password_confirmation: password,
     activated: true, activated_at: Time.zone.now
 end
+
+Author.times do |n|
+  name = FFaker::Name.name
+  Author.create! name: name
+end

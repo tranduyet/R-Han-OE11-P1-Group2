@@ -18,12 +18,16 @@ class MangaksController < ApplicationController
     @mangak = Mangak.find(params[:id])
   end
 
+  def index
+    @mangaks = Mangak.page(params[:page]).per 10
+  end
+
   def update
   end
 
   private
 
   def mangak_params
-     params.require(:mangak).permit(:name, :description, :picture)
+     params.require(:mangak).permit(:name, :description, :picture, :author_id, :genre_id)
   end
 end

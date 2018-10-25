@@ -7,7 +7,7 @@
     <ul class="nav navbar-nav navbar-right" style="font-size: 120%">
       <li class="active"><%= link_to "Home", root_path %></li>
       <% if logged_in? %>
-        <li class="upload"><%= link_to "Upload", "#" %>
+        <li class="upload"><%= link_to "Upload", new_mangak_path %>
           <li><%= link_to t(".users"), users_path %></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -30,7 +30,7 @@
   </div>
   <div class="topnav">
     <a class="active" href="#home">Manga</a>
-    <a href="#">Manga list</a>
+    <%= link_to "Manga list", mangaks_path %>
     <a href="#">Manga hot</a>
     <input type="text" placeholder="Search..">
   </div>

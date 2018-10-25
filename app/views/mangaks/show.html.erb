@@ -1,19 +1,24 @@
 <div class="col-md-1 col-md-offset-1">
   <%= image_tag @mangak.picture.url if @mangak.picture? %>
   </div>
-<div class="col-md-4 col-md-offset-2">
+<div class="col-md-4 col-md-offset-3">
   <span style="color: green; font-size: 200%">Name manga: <%= @mangak.name %></span>
   <br>
-  <span class="description">
-    <%= @mangak.description %>
-  </span>
+  <span style="color: green; font-size: 200%">Author: <%= @mangak.author.name %></span>
+  <span style="color: green; font-size: 200%">Genre: <%= @mangak.genre.name %></span>
   </div>
-
-  <div class="col-8">
-            <div data-spy="scroll" data-target="#myScrollspy" data-offset="10"
-                  style="height:200px;overflow-y: scroll;padding:5px; border: 1px solid #ccc;">
-               <h4 id="content-javascript">Javascript</h4>
-               <p>
+</div>
+<br>
+<div class="col-md-6 col-md-offset-3">
+  <div>
+    <p id="rcorners2">
+      Description: <%= @mangak.description %>
+    </p>
+  </div>
+  <div data-spy="scroll" data-target="#myScrollspy" data-offset="10"
+    style="height:200px;overflow-y: scroll;padding:5px; border: 1px solid #ccc;">
+  <h4 id="content-javascript">Javascript</h4>
+  <p>
                  JavaScript is a cross-platform, object-oriented scripting language used to make webpages interactive
                   (e.x. having complex animations, clickable buttons, popup menus, etc.)...
                </p>
@@ -31,5 +36,5 @@
                   and can be used with any XML-based markup language...
                </p>
             </div>
-         </div>
+
        </div>

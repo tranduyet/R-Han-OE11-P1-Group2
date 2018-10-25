@@ -6,6 +6,11 @@
 
       <%= f.label "Name manga" %>
       <%= f.text_field :name, class: "form-control" %>
+
+      <%= f.label "Author" %>
+      <%= f.select :author_id, options_from_collection_for_select(Author.all, :id, :name)  %>
+      <%= f.label "Genre" %>
+      <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name)  %>
       <div class="field">
         <%= f.label "Description" %>
         <%= f.text_area :description, class: "form-control" %>
