@@ -157,11 +157,11 @@ input {
 
 #sidebar {
   float: right;
-  width: 310px;
+  width: 200px;
   margin: 0px;
   padding: 30px 0px 0px 0px;
   color: #000000;
-}
+  }
 
 #sidebar ul {
   margin: 0;
@@ -203,6 +203,7 @@ input {
   color: #000000;
   margin: 0px 0px;
   padding: 5px 10px;
+  padding-left: 100px;
 }
 
 #sidebar p {

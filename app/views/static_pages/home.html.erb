@@ -2,13 +2,13 @@
 <ul>
   <li>
     <h2>Genre</h2>
-    <ul>
-      <li> <%= link_to (t ".sc"), "#" %></li>
-      <li><%= link_to (t ".psychology") , "#" %></li>
-      <li><%= link_to (t ".comics"), "#" %></li>
-      <li><%= link_to ( t ".romance"), "#" %></a></li>
-      <li><%= link_to ( t ".mystery"), "#" %></a></li>
-      <li><%= link_to ( t ".art"), "#" %></a></li>
+    <ul class="genre">
+      <% @genres.each do |genre| %>
+    <li>
+      <%= link_to genre.name, genre %>
+    </li>
+    <% end %>
     </ul>
   </li>
+</ul>
 </div>

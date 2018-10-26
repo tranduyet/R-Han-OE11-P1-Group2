@@ -4,7 +4,7 @@ class ChaptersController < ApplicationController
   end
 
   def create
-    @chapter = chapter.new mangak_params
+    @chapter = chapter.new chapter_params
     if @chapter.save
       flash[:info] = "Success"
       redirect_to @chapter
@@ -15,7 +15,7 @@ class ChaptersController < ApplicationController
   end
 
   def show
-    @chapter = Mangak.find(params[:id])
+    @chapter = Chapter.find(params[:id])
   end
 
   def update
@@ -23,7 +23,7 @@ class ChaptersController < ApplicationController
 
   private
 
-  def mangak_params
+  def chapter_params
      params.require(:mangak).permit(:name, :picture)
   end
 end
