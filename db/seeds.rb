@@ -11,7 +11,21 @@ User.create! name:  "Duyet Tran", email: "duyettran0608@gmail.com",
     activated: true, activated_at: Time.zone.now
 end
 
-Author.times do |n|
+15.times do |n|
   name = FFaker::Name.name
   Author.create! name: name
 end
+
+Genre.create! name: "Action"
+Genre.create! name: "School life"
+Genre.create! name: "Abc"
+Genre.create! name: "Xyz"
+Genre.create! name: "Ghk"
+Genre.create! name: "Ikl"
+Genre.create! name: "Qwer"
+Genre.create! name: "Tyu"
+Genre.create! name: "Mnl"
+Genre.create! name: "Tyo"
+Genre.create! name: "Ecc"
+Genre.create! name: "Kame"
+Genre.create! name: "Afk"
