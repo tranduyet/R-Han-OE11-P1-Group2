@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   end
   resources :authors
   resources :genres
+  resources :relationships, only: [:create, :destroy]
 end

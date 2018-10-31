@@ -1,5 +1,8 @@
 class User < ApplicationRecord
   has_many :mangak
+  has_many :active_relationships, class_name:  "Relationship", foreign_key: "follower_id",
+    dependent: :destroy
+  has_many :following, through: :active_relationships,  source: :followed
   attr_accessor :remember_token, :activation_token
   before_create :create_activation_digest
   validates :name,  presence: true, length: {maximum: 25}
@@ -45,6 +48,18 @@ class User < ApplicationRecord
 
   def send_activation_email
     UserMailer.account_activation(self).deliver_now
+  end
+
+  def follow mangak
+    following << mangak
+  end
+
+  def unfollow mangak
+    following.delete mangak
+  end
+
+  def following? mangak
+    following.include? mangak
   end
 
   private

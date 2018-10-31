@@ -9,12 +9,15 @@
   <br>
   <span style="color: green; font-size: 200%">Genre: <%= link_to @mangak.genre.name, genre_path %></span>
 </div>
-<% if logged_in? && current_user.admin? %>
+<% if logged_in? %>
+  <% if current_user.admin? %>
   <div class="col-8">
     <div class="button"><%= link_to "New chapter", new_mangak_chapter_path(@mangak,@chapter) %></div>
-  </div>
-</div>
+  <% end %>
+  <%= render "follow_form" %>
 <% end %>
+    </div>
+  </div>
 </div>
 <br>
 <div class="col-md-6 col-md-offset-3">

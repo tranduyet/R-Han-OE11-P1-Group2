@@ -25,6 +25,15 @@ class MangaksController < ApplicationController
   def update
   end
 
+  def destroy
+    if @mangak.destroy
+      flash[:success] = "Destroy"
+    else
+      flash[:danger] = "Delete fail"
+    end
+     redirect_to users_url
+  end
+
   private
 
   def mangak_params

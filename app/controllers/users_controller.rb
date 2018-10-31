@@ -4,7 +4,11 @@ class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
   before_action :find_user, except: %i(new create index)
 
-  def show; end
+  def show
+    @title = "List manga following"
+    @user  = User.find(params[:id])
+    @mangaks = @user.following.paginate(page: params[:page])
+  end
 
   def index
     @users = User.page(params[:page]).per 10
