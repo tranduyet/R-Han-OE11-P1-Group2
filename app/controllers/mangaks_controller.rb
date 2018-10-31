@@ -20,6 +20,9 @@ class MangaksController < ApplicationController
 
   def index
     @mangaks = Mangak.page(params[:page]).per 10
+    if params[:search]
+      @mangaks = Mangak.search(params[:search]).page(params[:page])
+    end
   end
 
   def update

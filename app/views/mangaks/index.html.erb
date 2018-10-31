@@ -1,14 +1,18 @@
-<% provide :title, "All manga" %>
-<h1>All manga</h1>
+<% provide :title, "List manga" %>
+<h1>List manga</h1>
+<% if @mangaks.any? %>
 <ul class="users">
   <% @mangaks.each do |mangak| %>
     <li>
       <%= image_tag mangak.picture.url, size: 50 %>
       <%= link_to mangak.name, mangak %>
-      <% if current_user.admin? %>
+      <% if logged_in? && current_user.admin? %>
     |   <%= link_to "delete", mangak, method: :delete, data: {confirm: t(".sure")} %>
       <% end %>
     </li>
   <% end %>
+<% else %>
+<p style="font-size: 120%; text-align: center">No result</p>
+<% end %>
 </ul>
 <%= will_paginate %>
