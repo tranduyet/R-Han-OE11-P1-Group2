@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   resources :authors
   resources :genres
   resources :relationships, only: [:create, :destroy]
+  resources :comments
 end

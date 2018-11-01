@@ -11,6 +11,7 @@ class ChaptersController < ApplicationController
   end
 
   def show
+    @mangak = Mangak.find_by id: params[:mangak_id]
     @images = @chapter.images.all
   end
 
@@ -24,10 +25,10 @@ class ChaptersController < ApplicationController
       params[:images]["image"].each do |a|
         @image = @chapter.images.create!(:image => a)
       end
-      flash[:info] = "Success"
+      flash[:info] = t ".success"
       redirect_to mangak_chapter_path(@mangak, @chapter)
     else
-      flash.now[:danger] = "Error"
+      flash.now[:danger] = t ".error"
       render :new
     end
   end
@@ -37,7 +38,13 @@ class ChaptersController < ApplicationController
   end
 
   def destroy
-
+    @chapter = Chapter.find_by(params[:id])
+    if @chapter.destroy
+      flash[:success] = t ".destroy"
+    else
+      flash[:danger] = t ".delete_fail"
+    end
+     redirect_to chapter.mangak
   end
 
   private

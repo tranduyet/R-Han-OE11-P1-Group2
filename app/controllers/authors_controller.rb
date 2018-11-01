@@ -6,10 +6,10 @@ class AuthorsController < ApplicationController
   def create
     @author = Author.new author_params
     if @author.save
-      flash[:info] = "Success"
+      flash[:info] = t ".success"
       redirect_to new_mangak_path
     else
-      flash.now[:danger] = "Error"
+      flash.now[:danger] = t ".error"
       render :new
     end
   end

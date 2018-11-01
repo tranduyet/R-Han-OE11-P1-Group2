@@ -6,16 +6,19 @@ class MangaksController < ApplicationController
   def create
     @mangak = Mangak.new mangak_params
     if @mangak.save
-      flash[:info] = "Success"
+      flash[:info] = t ".success"
       redirect_to @mangak
     else
-      flash.now[:danger] = "Error"
+      flash.now[:danger] = t ".error"
       render :new
     end
   end
 
   def show
     @mangak = Mangak.find(params[:id])
+    @user = current_user
+    @comment = Comment.new
+    @comments = @mangak.comments.paginate(page: params[:page])
   end
 
   def index
@@ -29,12 +32,13 @@ class MangaksController < ApplicationController
   end
 
   def destroy
+    @mangak = Mangak.find_by(params[:id])
     if @mangak.destroy
-      flash[:success] = "Destroy"
+      flash[:success] = t ".destroy"
     else
-      flash[:danger] = "Delete fail"
+      flash[:danger] = t. "delete_fail"
     end
-     redirect_to users_url
+     redirect_to mangaks_url
   end
 
   private

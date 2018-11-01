@@ -1,7 +1,6 @@
 en:
   static_pages:
     home:
-
   layouts:
     application:
       ror_tutorial: "Mangak"
@@ -84,3 +83,49 @@ en:
     edit:
       account_activated: "Account activated!"
       invalid: "Invalid activation link"
+  application:
+    log_in: "Please log in."
+  author:
+    create:
+      success: "Success"
+      errror: "Error"
+    new:
+      new_author: "New author"
+      author_name: "Author name"
+      create: "Create"
+  chapter:
+     create:
+      success: "Success"
+      errror: "Error"
+    destroy:
+      destroy: "Destroy"
+      delete_fail: "Delete fail"
+    new:
+      upload_chapter: "Upload chapter"
+      name_chapter: "Name chapter"
+      create: "Create"
+    show:
+      previous: "Previous"
+      next: "Next"
+  comment:
+    create:
+      success: "Success"
+      errror: "Error"
+    destroy:
+      comment_deleted: "Comment deleted"
+  mangak:
+    create:
+      success: "Success"
+      errror: "Error"
+    destroy:
+      destroy: "Destroy"
+      delete_fail: "Delete fail"
+    index:
+      list_manga: "List manga"
+      delete: "delete"
+      sure: "You sure?"
+      no_reult: "No result"
+    show:
+    new:
+
+

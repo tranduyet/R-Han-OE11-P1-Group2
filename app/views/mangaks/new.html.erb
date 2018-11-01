@@ -15,12 +15,11 @@
       <br>
       <%= f.label "Genre" %>
       <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :name)  %>
-      <div class="field">
+      <div class="field" style="margin-bottom: 20px">
         <%= f.label "Description" %>
         <%= f.text_area :description, class: "form-control" %>
       </div>
-
-      <span class="picture">
+      <span class="picture" >
       <%= f.label "Avatar" %>
       <%= f.file_field :picture %>
       </span>

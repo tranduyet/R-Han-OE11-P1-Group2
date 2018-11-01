@@ -22,18 +22,51 @@
 <br>
 <div class="col-md-6 col-md-offset-3">
   <div>
-    <p id="rcorners2" style="margin-bottom: 20px ">
-      Description: <%= @mangak.description %>
+    <p id="rcorners2" style="margin-bottom: 20px "><strong>
+      Description:</strong> <%= @mangak.description %>
     </p>
   </div>
   <div data-spy="scroll" data-target="#myScrollspy" data-offset="10"
     style="height:200px;overflow-y: scroll;padding:5px; border: 1px solid #ccc">
-  <ul class="users">
+  <ul class="chapters">
     <li class="list" style="color:green;font-size: 120%">List chapter</li>
     <% @mangak.chapters.each do |chapter| %>
     <li>
       <%= link_to chapter.name_chapter, mangak_chapter_path(chapter.mangak, chapter) %>
     </li>
   <% end %>
-</ul>
+  </ul>
 </div>
+<div class="comment">
+  <div class="container" style="margin-top: 20px ">
+    <aside class="col-md-12">
+      <section class="user_info">
+        <%= render "shared/user_info" %>
+      </section>
+      <section class="comment_form" style="margin-top: -20px ">
+        <%= render "shared/comment_form" %>
+      </section>
+    </aside>
+  </div>
+  </div>
+  <div class="show_comment">
+    <% if @user.comments.any? %>
+      <h3>comments (<%= @mangak.comments.count %>)</h3>
+      <ul class="comments">
+        <% @comments.each do |comment| %>
+          <li id="comment-<%= comment.id %>">
+            <%= link_to gravatar_for(comment.user, size: 50), comment.user %>
+            <span class="user"><%= link_to comment.user.name, comment.user %></span>
+            <span class="content"><%= comment.content %></span>
+            <span class="timestamp">
+            Posted <%= time_ago_in_words(comment.created_at) %> ago.
+            <% if current_user?(comment.user) || current_user.admin? %>
+              <%= link_to "delete", comment, method: :delete,
+                data: {confirm: "You sure?"} %>
+              <% end %>
+            </span>
+          </li>
+      <% end %>
+    <% end %>
+    </ul>
+  </div>
