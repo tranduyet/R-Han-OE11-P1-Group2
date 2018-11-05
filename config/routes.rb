@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+<<<<<<< dc375f8dbc8bc274d8c44de08e6c316dc9268fdf
   get 'users/show'
   get 'user/show'
   get 'admin/index'
   devise_for :users
   resources :users
+=======
+  devise_for :users
+>>>>>>> devise
   get 'authors/new'
   get 'authors/index'
   get 'authors/show'

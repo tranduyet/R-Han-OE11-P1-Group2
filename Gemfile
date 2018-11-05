@@ -6,11 +6,7 @@ ruby "2.4.0"
 gem "rails", "5.2.1"
 gem "bootstrap-will_paginate", "1.0.0"
 gem "bootstrap-sass", "3.3.7"
-<<<<<<< HEAD
-gem 'font-awesome-rails', '~> 4.7.0'
-=======
 gem "font-awesome-rails", "~> 4.7.0"
->>>>>>> layout
 gem "puma", "3.9.1"
 gem "sass-rails", "5.0.6"
 gem "uglifier", "3.2.0"
@@ -29,6 +25,7 @@ gem "rails-i18n"
 gem "impressionist"
 gem "devise"
 gem "omniauth-google-oauth2"
+gem "omniauth-facebook"
 
 group :development, :test do
   gem "sqlite3", "1.3.13"
