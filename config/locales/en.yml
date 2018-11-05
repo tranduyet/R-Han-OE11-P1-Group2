@@ -1,21 +1,66 @@
 en:
-  static_pages:
-    home:
+  chapters:
+    create:
+      success: "Success"
+      errror: "Error"
+    destroy:
+      destroy: "Destroy"
+      delete_fail: "Delete fail"
+    new:
+      upload_chapter: "Upload chapter"
+      name_chapter: "Name chapter"
+      create: "Create"
+    show:
+      previous: "Previous"
+      next: "Next"
+  authors:
+    create:
+      success: "Success"
+      errror: "Error"
+    new:
+      new_author: "New author"
+      author_name: "Author name"
+      create: "Create"
+  mangaks:
+    create:
+      success: "Success"
+      errror: "Error"
+    destroy:
+      destroy: "Destroy"
+      delete_fail: "Delete fail"
+    index:
+      list_manga: "List manga"
+      delete: "delete"
+      sure: "You sure?"
+      no_reult: "No result"
+    show:
+      new_chapter: "New chapter"
+      description: "Description:"
+      list_chapter: "List chapter"
+      posted: "Posted"
+      ago: "ago."
+      delete: "delete"
+      sure: "You sure?"
+      name_manga: "Name manga:"
+      author: "Author:"
+      genre: "Genre:"
+    new:
+      upload_manga: "Upload manga"
+      name_manga: "Name manga"
+      author: "Author"
+      new_author: "(New author)"
+      genre: "Genre"
+      description: "Description"
+      avatar: "Avatar"
+      create: "create"
   layouts:
     application:
       ror_tutorial: "Mangak"
     footer:
       the: "The"
       by: "by"
-      michael: "Michael Hartl"
       new: "News"
-      ruby_on: "Ruby on rails Tutorials"
       home: "Home"
-      help: "Help"
-      log_in: "Log in"
-      contact: "Contact"
-      about: "About"
-      sample_app: "sample_app"
       profile: "Profile"
       settings: "Settings"
       account: "Account"
@@ -83,49 +128,11 @@ en:
     edit:
       account_activated: "Account activated!"
       invalid: "Invalid activation link"
-  application:
-    log_in: "Please log in."
-  author:
-    create:
-      success: "Success"
-      errror: "Error"
-    new:
-      new_author: "New author"
-      author_name: "Author name"
-      create: "Create"
-  chapter:
-     create:
-      success: "Success"
-      errror: "Error"
-    destroy:
-      destroy: "Destroy"
-      delete_fail: "Delete fail"
-    new:
-      upload_chapter: "Upload chapter"
-      name_chapter: "Name chapter"
-      create: "Create"
-    show:
-      previous: "Previous"
-      next: "Next"
-  comment:
+  comments:
     create:
       success: "Success"
       errror: "Error"
     destroy:
       comment_deleted: "Comment deleted"
-  mangak:
-    create:
-      success: "Success"
-      errror: "Error"
-    destroy:
-      destroy: "Destroy"
-      delete_fail: "Delete fail"
-    index:
-      list_manga: "List manga"
-      delete: "delete"
-      sure: "You sure?"
-      no_reult: "No result"
-    show:
-    new:
 
 

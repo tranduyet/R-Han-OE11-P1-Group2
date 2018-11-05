@@ -36,7 +36,7 @@ class MangaksController < ApplicationController
     if @mangak.destroy
       flash[:success] = t ".destroy"
     else
-      flash[:danger] = t. "delete_fail"
+      flash[:danger] = t ".delete_fail"
     end
      redirect_to mangaks_url
   end
