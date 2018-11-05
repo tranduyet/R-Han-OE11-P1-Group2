@@ -18,6 +18,12 @@
   <%= t ".genre" %>
   <%= link_to @mangak.genre.name, @mangak.genre %>
   </span>
+  <br>
+  <span style="color: green; font-size: 180%">
+  <%= link_to image_tag("view.png",size: "25x20", alt: "") %>
+  <%= t ".view" %>
+  <%= @mangak.impressionist_count %>
+  </span>
 </div>
 <% if logged_in? %>
   <% if current_user.admin? %>
@@ -47,36 +53,38 @@
   <% end %>
   </ul>
 </div>
-<div class="comment">
-  <div class="container" style="margin-top: 20px ">
-    <aside class="col-md-12">
-      <section class="user_info">
-        <%= render "shared/user_info" %>
-      </section>
-      <section class="comment_form" style="margin-top: -20px ">
-        <%= render "shared/comment_form" %>
-      </section>
-    </aside>
-  </div>
-  </div>
+<% if logged_in? %>
+  <div class="comment">
+    <div class="container" style="margin-top: 20px ">
+      <aside class="col-md-12">
+        <section class="user_info">
+          <%= render "shared/user_info" %>
+        </section>
+        <section class="comment_form" style="margin-top: -20px ">
+          <%= render "shared/comment_form" %>
+        </section>
+      </aside>
+    </div>
+    </div>
+  <% end %>
   <div class="show_comment">
-    <% if @user.comments.any? %>
-      <h3>comments (<%= @mangak.comments.count %>)</h3>
-      <ul class="comments">
-        <% @comments.each do |comment| %>
-          <li id="comment-<%= comment.id %>">
-            <%= link_to gravatar_for(comment.user, size: 50), comment.user %>
-            <span class="user"><%= link_to comment.user.name, comment.user %></span>
-            <span class="content"><%= comment.content %></span>
-            <span class="timestamp">
-            <%= t ".posted" %> <%= time_ago_in_words(comment.created_at) %> <%= t ".ago" %>
+    <h3>comments (<%= @mangak.comments.count %>)</h3>
+    <ul class="comments">
+      <% @comments.each do |comment| %>
+        <li id="comment-<%= comment.id %>">
+          <%= link_to gravatar_for(comment.user, size: 50), comment.user %>
+          <span class="user"><%= link_to comment.user.name, comment.user %></span>
+          <span class="content"><%= comment.content %></span>
+          <span class="timestamp">
+          <%= t ".posted" %> <%= time_ago_in_words(comment.created_at) %> <%= t ".ago" %>
+          <% if logged_in? %>
             <% if current_user?(comment.user) || current_user.admin? %>
               <%= link_to t(".delete"), comment, method: :delete,
                 data: {confirm: t(".sure")} %>
               <% end %>
-            </span>
-          </li>
+          <% end %>
+          </span>
+        </li>
       <% end %>
-    <% end %>
     </ul>
   </div>

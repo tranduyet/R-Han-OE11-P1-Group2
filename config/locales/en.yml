@@ -44,6 +44,7 @@ en:
       name_manga: "Name manga:"
       author: "Author:"
       genre: "Genre:"
+      view: "View:"
     new:
       upload_manga: "Upload manga"
       name_manga: "Name manga"
