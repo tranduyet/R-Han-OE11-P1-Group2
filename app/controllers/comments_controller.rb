@@ -5,11 +5,8 @@ class CommentsController < ApplicationController
     @comment = Comment.new comment_params
     @mangak = @comment.mangak
     if @comment.save
-      flash[:success] = t ".success"
-    else
-      flash[:danger] = t ".error"
-    end
      redirect_to @mangak
+   end
   end
 
   def destroy

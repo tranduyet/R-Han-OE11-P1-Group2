@@ -1,4 +1,6 @@
 class MangaksController < ApplicationController
+  impressionist actions: [:show,:index]
+
   def new
     @mangak = Mangak.new
   end
@@ -19,6 +21,7 @@ class MangaksController < ApplicationController
     @user = current_user
     @comment = Comment.new
     @comments = @mangak.comments.paginate(page: params[:page])
+     impressionist(@mangak)
   end
 
   def index
