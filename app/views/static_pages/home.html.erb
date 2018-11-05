@@ -1,0 +1,26 @@
+<div id="sidebar">
+<ul>
+  <li>
+    <h2>Genre</h2>
+    <ul class="genre">
+      <% @genres.each do |genre| %>
+    <li>
+      <%= link_to genre.name, genre %>
+    </li>
+    <% end %>
+    </ul>
+  </li>
+</ul>
+</div>
+<div class="chapter" style="margin-top: 30px ">
+<ul class="abc">
+  <% @chapters.each do |chapter| %>
+    <li class="list" style="margin-bottom: 10px ">
+      <%= image_tag chapter.mangak.picture.url, size: 70 %>
+      <strong><%= link_to chapter.mangak.name, chapter.mangak %></strong> |
+      <%= link_to chapter.name_chapter, mangak_chapter_path(chapter.mangak, chapter) %>
+    </li>
+  <% end %>
+</ul>
+<%= will_paginate @chapters %>
+</div>
