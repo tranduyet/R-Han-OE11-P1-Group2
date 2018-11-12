@@ -1,25 +1,8 @@
 Rails.application.routes.draw do
-<<<<<<< dc375f8dbc8bc274d8c44de08e6c316dc9268fdf
-  get 'users/show'
-  get 'user/show'
-  get 'admin/index'
-  devise_for :users
-  resources :users
-=======
-  devise_for :users
->>>>>>> devise
-  get 'authors/new'
-  get 'authors/index'
-  get 'authors/show'
-  get 'chapters/new'
+  devise_for :users, :controllers => { omniauth_callbacks: 'users/omniauth_callbacks' }
   get "sessions/new"
   get "/home", to: "static_pages#home"
-  get "/signup", to: "users#new"
   root "static_pages#home"
-  post "/signup",  to: "users#create"
-  get  "/login", to: "sessions#new"
-  post  "/login", to: "sessions#create"
-  delete  "/logout", to: "sessions#destroy"
   resources :account_activations, only: :edit
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :mangaks do

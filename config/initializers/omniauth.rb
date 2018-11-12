@@ -1,7 +1,6 @@
-# config/initializers/omniauth.rb
-Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :google_oauth2,
-    ENV['794188029463-gblsgao7b2g28jp4uq23qgd63lmttpqk.apps.googleusercontent.com'],
-    ENV['yBPmrRBkaP17TmiGAEOZHXNd'],
-    scope: "email"
-end
+# Rails.application.config.middleware.use OmniAuth::Builder do
+#   provider :google_oauth2,
+#     '655924877174-3gmpotkr6n9gcabn2qqahiu5ml4mqs29.apps.googleusercontent.com',
+#     'sytib5OF54rTrU_7uMA_BmEd',
+#     scope: "email"
+# end
