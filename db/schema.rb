@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2018_11_08_063337) do
     t.integer "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "impressions_count", default: 0
+    t.integer "impressions_count"
     t.index ["author_id"], name: "index_mangaks_on_author_id"
     t.index ["genre_id"], name: "index_mangaks_on_genre_id"
   end
