@@ -57,10 +57,13 @@ en:
   layouts:
     application:
       ror_tutorial: "Mangak"
-    footer:
-      the: "The"
-      by: "by"
-      new: "News"
+    header:
+      manga: "Manga"
+      manga_list: "Manga list"
+      manga_hot: "Manga hot"
+      log_in: "Log in"
+      upload: "Upload"
+      mangak: "Mangak"
       home: "Home"
       profile: "Profile"
       settings: "Settings"

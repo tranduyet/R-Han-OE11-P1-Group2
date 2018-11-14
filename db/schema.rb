@@ -83,7 +83,11 @@ ActiveRecord::Schema.define(version: 2018_11_14_105346) do
     t.integer "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
     t.integer "impressions_count"
+=======
+    t.integer "impressions_count", default: 0
+>>>>>>> impressionist
     t.index ["author_id"], name: "index_mangaks_on_author_id"
     t.index ["genre_id"], name: "index_mangaks_on_genre_id"
   end
@@ -98,6 +102,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_105346) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
+<<<<<<< HEAD
   create_table "sporters", force: :cascade do |t|
     t.string "name"
     t.integer "age"
@@ -127,6 +132,20 @@ ActiveRecord::Schema.define(version: 2018_11_14_105346) do
     t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+=======
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.string "remember_digest"
+    t.boolean "admin"
+    t.string "activation_digest"
+    t.boolean "activated", default: false
+    t.datetime "activated_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+>>>>>>> impressionist
   end
 
 end

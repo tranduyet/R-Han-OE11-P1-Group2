@@ -25,9 +25,9 @@
     </div>
   </div>
   <div class="topnav">
-    <%= link_to "Manga", root_path %>
-    <%= link_to "Manga list", mangaks_path %>
-    <a href="#">Manga hot</a>
+    <%= link_to t(".manga"), root_path %>
+    <%= link_to t("manga_list"), mangaks_path(@mangaks) %>
+    <%= link_to t("manga_hot"), mangak_hot_path %>
     <div class="col-md-4 col-md-offset-4">
       <%= form_tag mangaks_path, method: :get do %>
       <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search name manga....." %>

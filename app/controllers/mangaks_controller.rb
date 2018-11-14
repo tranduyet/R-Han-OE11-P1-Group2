@@ -21,11 +21,12 @@ class MangaksController < ApplicationController
     @user = current_user
     @comment = Comment.new
     @comments = @mangak.comments.paginate(page: params[:page])
-     impressionist(@mangak)
+    impressionist(@mangak)
   end
 
   def index
-    @mangaks = Mangak.page(params[:page]).per 10
+    @mangaks = Mangak.select(:id, :name, :picture).sort_by_name.page(params[:page])
+    @mangaks_hot = Mangak.select(:id, :name, :picture).sort_by_impressionist.page(params[:page])
     if params[:search]
       @mangaks = Mangak.search(params[:search]).page(params[:page])
     end

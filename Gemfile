@@ -29,6 +29,7 @@ gem "omniauth-google-oauth2"
 gem "omniauth"
 gem "simple_form"
 gem "cancancan"
+gem "impressionist"
 
 group :development, :test do
   gem "sqlite3", "1.3.13"
