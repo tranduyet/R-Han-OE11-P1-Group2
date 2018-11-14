@@ -15,6 +15,6 @@ class Mangak < ApplicationRecord
   validates :picture, presence: true
   is_impressionable
 
-  scope :search, -> (mangak_name) {where("name LIKE ?", "%#{mangak_name}%")}
+  # scope :search, -> (mangak_name) {where("name LIKE ?", "%#{mangak_name}%")}
   default_scope -> { order(name: :desc) }
 end
