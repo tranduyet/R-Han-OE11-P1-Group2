@@ -6,7 +6,11 @@ ruby "2.4.0"
 gem "rails", "5.2.1"
 gem "bootstrap-will_paginate", "1.0.0"
 gem "bootstrap-sass", "3.3.7"
+<<<<<<< HEAD
 gem 'font-awesome-rails', '~> 4.7.0'
+=======
+gem "font-awesome-rails", "~> 4.7.0"
+>>>>>>> layout
 gem "puma", "3.9.1"
 gem "sass-rails", "5.0.6"
 gem "uglifier", "3.2.0"
@@ -17,13 +21,14 @@ gem "jbuilder", "2.7.0"
 gem "config"
 gem "bcrypt" , "3.1.12"
 gem "ffaker"
+gem "chartkick"
 gem "kaminari"
 gem "carrierwave", "1.2.2"
 gem "mini_magick", "4.7.0"
 gem "rails-i18n"
 gem "impressionist"
 gem "devise"
-gem "omniauth-facebook"
+gem "omniauth-google-oauth2"
 
 group :development, :test do
   gem "sqlite3", "1.3.13"

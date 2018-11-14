@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_08_063337) do
+ActiveRecord::Schema.define(version: 2018_11_14_025110) do
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
@@ -98,6 +98,13 @@ ActiveRecord::Schema.define(version: 2018_11_08_063337) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
+  create_table "sporters", force: :cascade do |t|
+    t.string "name"
+    t.integer "age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -108,6 +115,7 @@ ActiveRecord::Schema.define(version: 2018_11_08_063337) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "age"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

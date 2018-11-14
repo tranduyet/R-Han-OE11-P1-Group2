@@ -14,6 +14,9 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery
+//= require highcharts
+//= require Chart.bundle
+//= require chartkick
 //= require bootstrap
 //= require bootstrap-sprockets
 //= require custom.js
