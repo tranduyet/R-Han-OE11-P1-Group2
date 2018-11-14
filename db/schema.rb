@@ -11,10 +11,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2018_11_14_105346) do
 =======
 ActiveRecord::Schema.define(version: 2018_11_08_063337) do
 >>>>>>> remote_authauthentication
+=======
+ActiveRecord::Schema.define(version: 2018_11_14_105346) do
+>>>>>>> 1c370fc8449923e07600388644b2e40e28353872
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
@@ -138,6 +142,7 @@ ActiveRecord::Schema.define(version: 2018_11_08_063337) do
     t.integer "age"
     t.string "provider"
     t.string "uid"
+<<<<<<< HEAD
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 =======
@@ -151,6 +156,8 @@ ActiveRecord::Schema.define(version: 2018_11_08_063337) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+=======
+>>>>>>> 1c370fc8449923e07600388644b2e40e28353872
     t.index ["email"], name: "index_users_on_email", unique: true
 <<<<<<< HEAD
 >>>>>>> impressionist

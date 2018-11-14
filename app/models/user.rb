@@ -5,7 +5,6 @@ class User < ApplicationRecord
     dependent: :destroy
   has_many :following, through: :active_relationships,  source: :followed
   devise :database_authenticatable, :registerable,
-<<<<<<< HEAD
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
 
@@ -17,7 +16,4 @@ class User < ApplicationRecord
       user.name = auth.info.name
     end
   end
-=======
-         :recoverable, :rememberable, :validatable
->>>>>>> remote_authauthentication
 end
