@@ -4,15 +4,19 @@
 <ul class="users">
   <% @mangaks.each do |mangak| %>
     <li>
-      <%= image_tag mangak.picture.url, size: 50 %>
-      <strong><%= link_to mangak.name, mangak %></strong>
-      <% if logged_in? && current_user.admin? %>
+    <div class="popular-title">
+      <%= image_tag mangak.picture.url, size: 60 %>
+      <strong><%= link_to mangak.name, mangak %></strong><br>
+      <% if user_signed_in? && current_user.admin? %>
     |   <%= link_to t(".delete"), mangak, method: :delete, data: {confirm: t(".sure")} %>
+     | <%= link_to "New chapter", mangak %><br>
       <% end %>
+      View: <%= mangak.impressionist_count %>
+      </div>
     </li>
   <% end %>
 <% else %>
 <p style="font-size: 120%; text-align: center"><%= t ".no_result" %></p>
 <% end %>
 </ul>
-<%= will_paginate %>
+<%= will_paginate @users, theme: "twitter-bootstrap-3" %>

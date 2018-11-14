@@ -8,7 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '8437c96352cd8c979e922534e8134eadb64ca94bf4b44a2cbc7bebfb77fc2c3bbf0104d31d746c17a5fa4a22e38d9c8c191c0723636688c6a87180f13f2cd6c3'
+  # config.secret_key = '950102614dd08aba1f82fb6104c1c61996e556bac8b0b6bd2abcbcd50e88510918c593a0fa7a04725578e2776f0e8a396d64868f7722d6f427a4072152ca44e7'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -114,7 +114,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'bd8625af2c933c71ae7c2850ae978ec64cb3f3d78ab8eefc6401e4612329168586c58eb904b4a7860175818f491691ce9c4f5596d87c2f4ecd6276bfb22c2ed8'
+  # config.pepper = '1ea34ccc594b5b1cd0d6d173e46eb21531f3730b847e84db322aa42d4b3ff089a8ff401e1db870c5e28799ed2631e9d20affb5d31c2727770df5f3ab85ac7757'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -229,7 +229,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  config.scoped_views = true
+  config.scoped_views = false
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
@@ -257,11 +257,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-<<<<<<< HEAD
   config.omniauth :google_oauth2, '655924877174-3gmpotkr6n9gcabn2qqahiu5ml4mqs29.apps.googleusercontent.com', 'sytib5OF54rTrU_7uMA_BmEd', {}
-=======
-
->>>>>>> remote_authauthentication
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
@@ -291,4 +287,5 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
+  # config.omniauth :google_oauth2, '655924877174-3gmpotkr6n9gcabn2qqahiu5ml4mqs29.apps.googleusercontent.com' ,' sytib5OF54rTrU_7uMA_BmEd' , {}
 end

@@ -1,23 +1,10 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
   devise_for :users, :controllers => { omniauth_callbacks: 'users/omniauth_callbacks' }
-=======
-  devise_for :users
-  get 'authors/new'
-  get 'authors/index'
-  get 'authors/show'
-  get 'chapters/new'
->>>>>>> remote_authauthentication
   get "sessions/new"
+  get "/mangak_hot", to: "mangaks#mangak_hot"
+  get "/list_chapter", to: "mangaks#list_chapter"
   get "/home", to: "static_pages#home"
   root "static_pages#home"
-<<<<<<< HEAD
-=======
-  post "/signup",  to: "users#create"
-  get  "/login", to: "sessions#new"
-  post  "/login", to: "sessions#create"
-  delete  "/logout", to: "sessions#destroy"
->>>>>>> remote_authauthentication
   resources :account_activations, only: :edit
   resources :password_resets, only: [:new, :create, :edit, :update]
   resources :mangaks do

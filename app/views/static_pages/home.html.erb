@@ -68,117 +68,62 @@
     <div class="col-md-3">
       <div class="popular-manga">
         <table class="popular-title-top">POPULAR MANGA
-          <tr>
-            <div class="popular-title">
-              <%= link_to image_tag("huyettoccamvuc.jpg", alt: "") %>Huyết tộc cấm vực<br>
-              <i style="color: #9C9C9C; font-size: 10px;">Ngày cập nhật: 18/11/2018</i>
-            </div>
-          </tr>
-          <tr>
-            <div class="popular-title">
-              <%= link_to image_tag("huyettoccamvuc.jpg", alt: "") %>Huyết tộc cấm vực<br>
-              <i style="color: #9C9C9C; font-size: 10px;">Ngày cập nhật: 18/11/2018</i>
-            </div>
-          </tr>
-          <tr>
-            <div class="popular-title">
-              <%= link_to image_tag("huyettoccamvuc.jpg", alt: "") %>Huyết tộc cấm vực<br>
-              <i style="color: #9C9C9C; font-size: 10px;">Ngày cập nhật: 18/11/2018</i>
-            </div>
-          </tr>
-          <tr>
-            <div class="popular-title">
-              <%= link_to image_tag("huyettoccamvuc.jpg", alt: "") %>Huyết tộc cấm vực<br>
-            <i style="color: #9C9C9C; font-size: 10px;">Ngày cập nhật: 18/11/2018</i>
-            </div>
-          </tr>
-          <tr>
-            <div class="popular-title">
-              <%= link_to image_tag("huyettoccamvuc.jpg", alt: "") %>Huyết tộc cấm vực<br>
-              <i style="color: #9C9C9C; font-size: 10px;">Ngày cập nhật: 18/11/2018</i>
-            </div>
-          </tr>
+          <ul class="abc">
+          <% @mangaks.each do |mangak| %>
+          <div class="popular-title">
+            <li class="list" style="margin-bottom: 10px">
+              <%= image_tag mangak.picture.url, size: 70 %>
+              <strong><%= link_to mangak.name, mangak %></strong><br>
+              Update: <%= mangak.updated_at %><br>
+              View: <%= mangak.impressionist_count %>
+            </li>
+          </div>
+          <% end %>
+          </ul>
         </table>
       </div>
     </div>
 
     <div class="col-md-6">
-      <table>
-        <div class="recent_nav">
-        <%= link_to "Recent update", "#" %>
-        <%= link_to "Hot update", "#" %>
-        <%= link_to "New posts", "#" %>
-        </div>
-        <div class="wrap_update home">
-          <div class="update_item">
-            <tr>
-              <div class="update_image">
-                <%= link_to image_tag("huyettoccamvuc.jpg", alt: "") %>Huyết tộc cấm vực
-                <em style="margin: 149px; color: #9C9C9C; font-size: 10px;">16 giờ trước</em><br>
-                <i style="color: #9C9C9C; font-size: 10px;">Huyết Tộc Cấm Vực chap 127.1</i>
-              </div>
-            </tr>
-            <tr>
-              <div class="update_image">
-                <%= link_to image_tag("huyettoccamvuc.jpg", alt: "") %>Huyết tộc cấm vực
-                <em style="margin: 149px; color: #9C9C9C; font-size: 10px;">16 giờ trước</em><br>
-                <i style="color: #9C9C9C; font-size: 10px;">Huyết Tộc Cấm Vực chap 127.1</i>
-              </div>
-            </tr>
-            <tr>
-              <div class="update_image">
-                <%= link_to image_tag("huyettoccamvuc.jpg", alt: "") %>Huyết tộc cấm vực
-                <em style="margin: 149px; color: #9C9C9C; font-size: 10px;">16 giờ trước</em><br>
-                <i style="color: #9C9C9C; font-size: 10px;">Huyết Tộc Cấm Vực chap 127.1</i>
-              </div>
-            </tr>
-            <tr>
-              <div class="update_image">
-                <%= link_to image_tag("huyettoccamvuc.jpg", alt: "") %>Huyết tộc cấm vực
-                <em style="margin: 149px; color: #9C9C9C; font-size: 10px;">16 giờ trước</em><br>
-                <i style="color: #9C9C9C; font-size: 10px;">Huyết Tộc Cấm Vực chap 127.1</i>
-              </div>
-            </tr>
-            <tr>
-              <div class="update_image">
-                <%= link_to image_tag("huyettoccamvuc.jpg", alt: "") %>Huyết tộc cấm vực
-                <em style="margin: 149px; color: #9C9C9C; font-size: 10px;">16 giờ trước</em><br>
-                <i style="color: #9C9C9C; font-size: 10px;">Huyết Tộc Cấm Vực chap 127.1</i>
-              </div>
-            </tr>
+      <div class="recent_nav">
+      <%= link_to "Recent update", "#" %>
+      <%= link_to "Hot update", "#" %>
+      <%= link_to "New posts", "#" %>
+      </div>
+      <div class="wrap_update home">
+        <div class="update_item">
+          <ul class="abc">
+          <% @chapters.each do |chapter| %>
+          <div class="popular-title">
+            <li class="list" style="margin-bottom: 10px ">
+              <%= image_tag chapter.mangak.picture.url, size: 70 %>
+              <strong><%= link_to chapter.mangak.name, chapter.mangak %></strong><br>
+              <%= link_to chapter.name_chapter, mangak_chapter_path(chapter.mangak, chapter) %>
+              <br>
+              View: <%= chapter.mangak.impressionist_count %>
+            </li>
           </div>
+          <% end %>
+          </ul>
         </div>
-      </table>
+      </div>
     </div>
     <div class="col-md-3">
       <table>
         <div class="most-read">
-          <span class="feature-title">MOST-READ STORY</span>
-            <tr>
-              <div class="chapter">
-                <%= link_to "1.Huyết tộc cấm vực", "#" %>
-              </div>
-            </tr>
-            <tr>
-              <div class="chapter">
-                <%= link_to "2.Huyết tộc cấm vực", "#" %>
-              </div>
-            </tr>
-            <tr>
-              <div class="chapter">
-                <%= link_to "3.Huyết tộc cấm vực", "#" %>
-              </div>
-            </tr>
-            <tr>
-              <div class="popular-title">
-                <%= link_to "4.Huyết tộc cấm vực", "#" %>
-              </div>
-            </tr>
-            <tr>
-              <div class="popular-title">
-                <%= link_to "5.Huyết tộc cấm vực", "#" %>
-              </div>
-            </tr>
+          <span class="feature-title">NEW MANGA</span>
+            <ul class="abc">
+          <% @mangaks_new.each do |mangak| %>
+          <div class="popular-title">
+            <li class="list" style="margin-bottom: 10px">
+              <%= image_tag mangak.picture.url, size: 70 %>
+              <strong><%= link_to mangak.name, mangak %></strong><br>
+              Update: <%= mangak.updated_at %><br>
+              View: <%= mangak.impressionist_count %>
+            </li>
+          </div>
+          <% end %>
+          </ul>
       </div>
     </div>
   </div>
