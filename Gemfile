@@ -30,6 +30,8 @@ gem "omniauth"
 gem "simple_form"
 gem "cancancan"
 gem "impressionist"
+gem "devise"
+gem "omniauth-facebook"
 
 group :development, :test do
   gem "sqlite3", "1.3.13"

@@ -21,7 +21,11 @@ class MangaksController < ApplicationController
     @user = current_user
     @comment = Comment.new
     @comments = @mangak.comments.paginate(page: params[:page])
+<<<<<<< HEAD
     impressionist(@mangak)
+=======
+     impressionist(@mangak)
+>>>>>>> remote_authauthentication
   end
 
   def index

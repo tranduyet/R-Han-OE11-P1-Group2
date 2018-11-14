@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2018_11_14_105346) do
+=======
+ActiveRecord::Schema.define(version: 2018_11_08_063337) do
+>>>>>>> remote_authauthentication
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
@@ -84,10 +88,14 @@ ActiveRecord::Schema.define(version: 2018_11_14_105346) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
 <<<<<<< HEAD
+<<<<<<< HEAD
     t.integer "impressions_count"
 =======
     t.integer "impressions_count", default: 0
 >>>>>>> impressionist
+=======
+    t.integer "impressions_count"
+>>>>>>> remote_authauthentication
     t.index ["author_id"], name: "index_mangaks_on_author_id"
     t.index ["genre_id"], name: "index_mangaks_on_genre_id"
   end
@@ -134,18 +142,21 @@ ActiveRecord::Schema.define(version: 2018_11_14_105346) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 =======
   create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.boolean "admin", default: false
     t.string "name"
-    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_digest"
-    t.string "remember_digest"
-    t.boolean "admin"
-    t.string "activation_digest"
-    t.boolean "activated", default: false
-    t.datetime "activated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
+<<<<<<< HEAD
 >>>>>>> impressionist
+=======
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+>>>>>>> remote_authauthentication
   end
 
 end
