@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
-  get 'user/show'
-  get 'admin/index'
-  devise_for :users, controllers: {omniauth_callbacks: 'users/omniauth_callbacks'}
-  get 'authors/new'
-  get 'authors/index'
-  get 'authors/show'
-  get 'chapters/new'
+  devise_for :users, :controllers => { omniauth_callbacks: 'users/omniauth_callbacks' }
   get "sessions/new"
+  get "/mangak_hot", to: "mangaks#mangak_hot"
+  get "/list_chapter", to: "mangaks#list_chapter"
   get "/home", to: "static_pages#home"
   root "static_pages#home"
   resources :account_activations, only: :edit

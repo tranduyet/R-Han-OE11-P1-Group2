@@ -13,8 +13,10 @@ class Mangak < ApplicationRecord
   validates :genre_id, presence: true
   mount_uploader :picture, PictureUploader
   validates :picture, presence: true
-  is_impressionable
+  is_impressionable counter_cache: true
 
-  # scope :search, -> (mangak_name) {where("name LIKE ?", "%#{mangak_name}%")}
-  default_scope -> { order(name: :desc) }
+  scope :search_manga, -> (mangak_name) {where("name LIKE ?", "%#{mangak_name}%")}
+  scope :sort_by_name, -> {order(created_at: :desc)}
+  scope :sort_by_impressionist, -> {order(impressions_count: :desc)}
+  scope :sort_by_create, -> {order(created_at: :desc)}
 end

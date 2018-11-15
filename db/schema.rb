@@ -9,8 +9,7 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
-ActiveRecord::Schema.define(version: 2018_11_14_105346) do
+ActiveRecord::Schema.define(version: 2018_11_08_063337) do
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
@@ -83,7 +82,9 @@ ActiveRecord::Schema.define(version: 2018_11_14_105346) do
     t.integer "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "impressions_count"
+
+    t.integer "impressions_count", default: 0
+
     t.index ["author_id"], name: "index_mangaks_on_author_id"
     t.index ["genre_id"], name: "index_mangaks_on_genre_id"
   end
@@ -97,6 +98,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_105346) do
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
+
 
   create_table "sporters", force: :cascade do |t|
     t.string "name"

@@ -1,8 +1,6 @@
 User.create! name:  "Trần Thị Vân Anh", age: "21", email: "vanh123@gmail.com",
   password: "12345678", password_confirmation: "12345678", admin: true
 
-
-
 30.times do |n|
   name  = FFaker::Name.name
   email = "example-#{n+1}@railstutorial.org"
