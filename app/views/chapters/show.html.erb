@@ -1,11 +1,20 @@
-<div class="chapter">
-  <p class="col-md-1 col-md-offset-2"><%= link_to "Previous", "#" %></p>
-  <p class="col-md-1 col-md-offset-7"><%= link_to "Next", "#", class: "abc"%></p>
+<div class="abc">
+  <% @next_chapter.select do |f| %>
+  <% if f.id = @chapter.id + 1 %>
+    <%= link_to "next", mangak_chapter_path(f.mangak, f) %>
+  <% end %>
+  <% end %>
+  <% @next_chapter.select do |f| %>
+  <% if f.id = @chapter.id - 1 %>
+    <%= link_to "previous", mangak_chapter_path(f.mangak, f) %>
+  <% end %>
+  <% end %>
 </div>
 <div class="col-md-4 col-md-offset-2">
   <div class="dropdown">
     <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" style="width:200px">
-    <%= @chapter.name_chapter %></button>
+    <%= @chapter.name_chapter %>
+    </button>
     <ul class="dropdown-menu">
       <% @mangak.chapters.each do |chapter| %>
       <li>

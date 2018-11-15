@@ -71,14 +71,14 @@
     <%= t ".list chapter" %></th>
     <th class="col-md-3 col-md-offset-5" style="color:green;font-size: 120%">Created at</th>
   </tr>
-  <tr>
     <% @mangak.chapters.each do |chapter| %>
+    <tr>
     <th class="col-md-9 col-md-offset-4">
     <%= link_to chapter.name_chapter, mangak_chapter_path(chapter.mangak, chapter) %></th>
     <th class="col-md-3 col-md-offset-5">
     <%= chapter.created_at %></th>
+    </tr>
   <% end %>
-  </tr>
   </table>
 </div>
 <% if user_signed_in? %>
@@ -107,7 +107,7 @@
           <span class="timestamp">
           <%= t ".posted" %> <%= time_ago_in_words(comment.created_at) %> <%= t ".ago" %>
           <% if user_signed_in? %>
-            <% if current_user.admin? %>
+            <% if current_user.admin? || (current_user == comment.user) %>
               <%= link_to t(".delete"), comment, method: :delete,
                 data: {confirm: t(".sure")} %>
               <% end %>
@@ -133,4 +133,3 @@
       <% end %>
     </ul>
   </div>
-<% end %>

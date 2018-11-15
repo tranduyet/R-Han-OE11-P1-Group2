@@ -9,7 +9,7 @@
       <strong><%= link_to mangak.name, mangak %></strong><br>
       <% if user_signed_in? && current_user.admin? %>
     |   <%= link_to t(".delete"), mangak, method: :delete, data: {confirm: t(".sure")} %>
-     | <%= link_to "New chapter", mangak %><br>
+     | <%= link_to "New chapter", new_mangak_chapter_path(mangak, mangak.chapters) %><br>
       <% end %>
       View: <%= mangak.impressionist_count %>
       </div>

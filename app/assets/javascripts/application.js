@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery-3.2.1.min.js
-//= require bootstrap.min.js
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
@@ -22,5 +21,4 @@
 //= require bootstrap-sprockets
 //= require custom.js
 //= require owl.carousel.min.js
-
-
+//= require next.js

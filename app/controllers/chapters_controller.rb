@@ -13,6 +13,7 @@ class ChaptersController < ApplicationController
   def show
     @mangak = Mangak.find_by id: params[:mangak_id]
     @images = @chapter.images.all
+    @next_chapter = @chapter.mangak.chapters
   end
 
   def edit
