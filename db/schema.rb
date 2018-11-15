@@ -9,7 +9,8 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-ActiveRecord::Schema.define(version: 2018_11_08_063337) do
+
+ActiveRecord::Schema.define(version: 2018_11_15_171552) do
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
@@ -25,12 +26,21 @@ ActiveRecord::Schema.define(version: 2018_11_08_063337) do
     t.index ["mangak_id"], name: "index_chapters_on_mangak_id"
   end
 
+  create_table "comment_hierarchies", force: :cascade do |t|
+    t.integer "ancestor_id", null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations", null: false
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "comment_anc_desc_udx", unique: true
+    t.index ["descendant_id"], name: "comment_desc_idx"
+  end
+
   create_table "comments", force: :cascade do |t|
     t.string "content"
     t.integer "user_id"
     t.integer "mangak_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "parent_id"
     t.index ["mangak_id"], name: "index_comments_on_mangak_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -82,9 +92,7 @@ ActiveRecord::Schema.define(version: 2018_11_08_063337) do
     t.integer "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
-    t.integer "impressions_count", default: 0
-
+    t.integer "impressions_count"
     t.index ["author_id"], name: "index_mangaks_on_author_id"
     t.index ["genre_id"], name: "index_mangaks_on_genre_id"
   end
@@ -98,7 +106,6 @@ ActiveRecord::Schema.define(version: 2018_11_08_063337) do
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
-
 
   create_table "sporters", force: :cascade do |t|
     t.string "name"

@@ -1,5 +1,10 @@
 class CommentsController < ApplicationController
   before_action :correct_user, only: :destroy
+
+  def new
+    @comment = Comment.new(parent_id: params[:parent_id])
+  end
+
   def create
     @comment = Comment.new comment_params
     @mangak = @comment.mangak

@@ -34,7 +34,7 @@ en:
       sure: "You sure?"
       no_reult: "No result"
     show:
-      new_chapter: "New chapter"
+      add_new_chapter: "Add New chapter"
       description: "Description:"
       list_chapter: "List chapter"
       posted: "Posted"

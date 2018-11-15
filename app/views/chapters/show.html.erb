@@ -5,8 +5,7 @@
 <div class="col-md-4 col-md-offset-2">
   <div class="dropdown">
     <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" style="width:200px">
-    <%= @chapter.name_chapter %>
-    <span class="caret"></span></button>
+    <%= @chapter.name_chapter %></button>
     <ul class="dropdown-menu">
       <% @mangak.chapters.each do |chapter| %>
       <li>
@@ -19,9 +18,9 @@
     <strong><%= link_to @mangak.name, mangak_path(@mangak) %></strong>
     <%= @chapter.name_chapter %>
   </p>
-  </div>
-  <div class="col-md-6 col-md-offset-2">
-    <% @images.each do |p| %>
-    <%= image_tag p.image_url, style: "width: 700px; height: 700px" %>
-    <% end %>
-  </div>
+</div>
+<div class="col-md-6 col-md-offset-2">
+  <% @images.each do |p| %>
+  <%= image_tag p.image_url, style: "width: 700px; height: 700px" %>
+  <% end %>
+</div>

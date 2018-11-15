@@ -1,26 +1,25 @@
 <% if can? :manage, :all %>
-<div class="col-md-3 col-md-offset-1">
-<button type="button"><%= link_to image_tag("cong.jpg", size: "20x20") %>
-<%= link_to t(".new_chapter"), new_mangak_chapter_path(@mangak,@chapter) %>
-</button>
-</div>
+
 <div data-spy="scroll" data-target="#myScrollspy" data-offset="8"
     style="height:200px;width: 80%;overflow-y: scroll;padding:5px; border: solid #ccc">
-<table>
-  <tr class="chapters">
-    <th class="col-md-9 col-md-offset-4" style="color:green;font-size: 120%">
-    <%= t ".list chapter" %></th>
-    <th class="col-md-3 col-md-offset-5" style="color:green;font-size: 120%">Created at</th>
-  </tr>
-  <tr>
-    <% @mangak.chapters.each do |chapter| %>
-    <th class="col-md-9 col-md-offset-4">
-    <%= link_to chapter.name_chapter, mangak_chapter_path(chapter.mangak, chapter) %></th>
-    <th class="col-md-3 col-md-offset-5">
-    <%= chapter.created_at %></th>
-  <% end %>
-  </tr>
+  <table>
+    <tr class="chapters">
+      <th class="col-md-9 col-md-offset-4" style="color:green;font-size: 120%">
+      <%= t ".list chapter" %></th>
+      <th class="col-md-3 col-md-offset-5" style="color:green;font-size: 120%">Created at</th>
+    </tr>
+    <tr>
+      <% @mangak.chapters.each do |chapter| %>
+      <th class="col-md-9 col-md-offset-4">
+      <%= link_to chapter.name_chapter, mangak_chapter_path(chapter.mangak, chapter) %></th>
+      <th class="col-md-3 col-md-offset-5">
+      <%= chapter.created_at %></th>
+    <% end %>
+    </tr>
   </table>
+</div>
+<div class="col-md-3 col-md-offset-1">
+<%= link_to t(".add_new_chapter"), new_mangak_chapter_path(@mangak,@chapter), class: 'button' %>
 </div>
 
 <% else %>
@@ -94,8 +93,9 @@
         </section>
       </aside>
     </div>
-    </div>
-  <% end %>
+  </div>
+<% end %>
+
   <div class="show_comment">
     <h3>comments (<%= @mangak.comments.count %>)</h3>
     <ul class="comments">
@@ -111,7 +111,23 @@
               <%= link_to t(".delete"), comment, method: :delete,
                 data: {confirm: t(".sure")} %>
               <% end %>
-          <% end %>
+              <!-- reply -->
+              <span class="btn-reply">
+                (<%= Comment.where(parent_id: comment.id).size %>)
+                Reply
+              </span>
+              <%= form_for(@comment, remote: true) do |f| %>
+                <div class="comment_form" style="display: flex">
+                  <%= render "shared/error_messages", object: f.object %>
+                  <div class="field" style="width: 700px;height: 50px">
+                    <%= f.text_area :content, placeholder: "Reply..." %>
+                  </div>
+                  <%= f.hidden_field :user_id, value: current_user.id %>
+                  <%= f.hidden_field :user_comment_id, value: params[:id] %>
+                  <%= f.submit "Reply", class: "btn btn-primary" %>
+                </div>
+              <% end %>
+            <% end %>
           </span>
         </li>
       <% end %>
