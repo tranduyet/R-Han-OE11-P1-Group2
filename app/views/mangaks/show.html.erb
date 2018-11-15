@@ -25,11 +25,7 @@
   <%= @mangak.impressionist_count %>
   </span>
 </div>
-<% if logged_in? %>
-  <% if current_user.admin? %>
-  <div class="col-8">
-    <div class="button"><%= link_to t(".new_chapter"), new_mangak_chapter_path(@mangak,@chapter) %></div>
-  <% end %>
+<% if user_signed_in? %>
   <%= render "follow_form" %>
 <% end %>
     </div>
@@ -44,16 +40,23 @@
   </div>
   <div data-spy="scroll" data-target="#myScrollspy" data-offset="10"
     style="height:200px;overflow-y: scroll;padding:5px; border: solid #ccc">
-  <ul class="chapters">
-    <li class="list" style="color:green;font-size: 120%"><%= t ".list chapter" %></li>
+  <table>
+  <tr class="chapters">
+    <th class="col-md-9 col-md-offset-4" style="color:green;font-size: 120%">
+    <%= t ".list chapter" %></th>
+    <th class="col-md-3 col-md-offset-5" style="color:green;font-size: 120%">Created at</th>
+  </tr>
     <% @mangak.chapters.each do |chapter| %>
-    <li>
-      <%= link_to chapter.name_chapter, mangak_chapter_path(chapter.mangak, chapter) %>
-    </li>
+    <tr>
+    <th class="col-md-9 col-md-offset-4">
+    <%= link_to chapter.name_chapter, mangak_chapter_path(chapter.mangak, chapter) %></th>
+    <th class="col-md-3 col-md-offset-5">
+    <%= chapter.created_at %></th>
+    </tr>
   <% end %>
-  </ul>
+  </table>
 </div>
-<% if logged_in? %>
+<% if user_signed_in? %>
   <div class="comment">
     <div class="container" style="margin-top: 20px ">
       <aside class="col-md-12">
@@ -77,8 +80,8 @@
           <span class="content"><%= comment.content %></span>
           <span class="timestamp">
           <%= t ".posted" %> <%= time_ago_in_words(comment.created_at) %> <%= t ".ago" %>
-          <% if logged_in? %>
-            <% if current_user?(comment.user) || current_user.admin? %>
+          <% if user_signed_in? %>
+            <% if current_user.admin? || (current_user == comment.user) %>
               <%= link_to t(".delete"), comment, method: :delete,
                 data: {confirm: t(".sure")} %>
               <% end %>

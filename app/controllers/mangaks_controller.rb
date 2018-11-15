@@ -21,19 +21,18 @@ class MangaksController < ApplicationController
     @user = current_user
     @comment = Comment.new
     @comments = @mangak.comments.paginate(page: params[:page])
-<<<<<<< HEAD
     impressionist(@mangak)
-=======
-     impressionist(@mangak)
->>>>>>> remote_authauthentication
   end
 
   def index
-    @mangaks = Mangak.select(:id, :name, :picture).sort_by_name.page(params[:page])
-    @mangaks_hot = Mangak.select(:id, :name, :picture).sort_by_impressionist.page(params[:page])
+    @mangaks = Mangak.select(:id, :name, :picture).sort_by_name.paginate(page: params[:page], :per_page => 10)
     if params[:search]
-      @mangaks = Mangak.search(params[:search]).page(params[:page])
+      @mangaks = Mangak.search(params[:search_manga]).paginate(page: params[:page], :per_page => 10)
     end
+  end
+
+  def mangak_hot
+    @mangaks_hot = Mangak.select(:id, :name, :picture).sort_by_impressionist.page(params[:page])
   end
 
   def update
