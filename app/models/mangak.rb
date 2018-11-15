@@ -15,6 +15,8 @@ class Mangak < ApplicationRecord
   validates :picture, presence: true
   is_impressionable counter_cache: true
 
-  scope :search, -> (mangak_name) {where("name LIKE ?", "%#{mangak_name}%")}
+  scope :search_manga, -> (mangak_name) {where("name LIKE ?", "%#{mangak_name}%")}
   scope :sort_by_name, -> {order(created_at: :desc)}
   scope :sort_by_impressionist, -> {order(impressions_count: :desc)}
+  scope :sort_by_create, -> {order(created_at: :desc)}
+end
