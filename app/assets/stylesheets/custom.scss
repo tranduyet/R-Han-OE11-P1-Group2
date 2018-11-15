@@ -35,12 +35,12 @@ h2{
 
   #logo {
     float: left;
-    margin-left: -500%;
     font-size: 1.7em;
     color: black;
+    margin-right: 787px;
+    margin-left: -339px;
     text-transform: capitalize;
     letter-spacing: -1px;
-    padding-top: 9px;
     font-weight: lighter;
     &:hover {
      color: $blue;
@@ -52,6 +52,11 @@ h2{
   background-color: #b2b2b2;
   margin-left: 4%;
   margin-right: 4%;
+}
+
+//slide
+.owl-stage {
+  margin-top: 20px;
 }
 
 
@@ -211,7 +216,6 @@ input {
 //popular manga
 
 .container{
-margin-top: -20px;
 }
 
 .popular-manga {
@@ -335,6 +339,7 @@ margin-top: -20px;
   padding-bottom: 58px;
   padding-left: 15px;
   padding-right: 15px;
+  height: 151.567px;
 }
 .card-title
 {
@@ -459,6 +464,10 @@ ul {
   .navbar:not(.top-nav-collapse) {
     background: #3f51b5 !important;
   }
+}
+
+.topnav {
+  margin-bottom: 40px;
 }
 
 .card {
@@ -646,6 +655,11 @@ h6 {
   width: 1px; }
 .text-left.dib {
   margin-top:25px;
+}
+
+//stat-text
+.stat-text {
+  margin-top: 20px;
 }
 
 //bg-flat

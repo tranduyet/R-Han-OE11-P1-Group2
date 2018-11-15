@@ -344,6 +344,7 @@ DEPENDENCIES
   mini_magick (= 4.7.0)
   minitest (= 5.10.3)
   minitest-reporters (= 1.1.14)
+  omniauth
   omniauth-google-oauth2
   pg (= 0.20.0)
   puma (= 3.9.1)
