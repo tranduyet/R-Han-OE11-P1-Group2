@@ -49,22 +49,38 @@ h2{
  }
 
 .header {
-  background-color: #b2b2b2;
+background-color: #000000;
   margin-left: 4%;
   margin-right: 4%;
 }
+.col-md-4.col-md-offset-4 {
+  width: 300px;
+  margin-left: 780px;
+  margin-bottom: -50px;
+}
 
 //slide
-.owl-stage {
-  margin-top: 20px;
+
+.container-body {
+  margin-top: 30px;
 }
+
+.owl-carousel.owl-theme {
+  margin-top: -15px;
+}
+
 
 
 .header ul.navbar-nav {flex-direction: row !important;}
 
-.topnav {
-  overflow: hidden;
-  background-color: black;
+.nav.navbar-nav.navbar-header img {
+  margin-left: -670px;
+  margin-bottom: -71px;
+}
+
+.nav.navbar-nav.navbar-right {
+  margin-right: -329px;
+  margin-top: 21px;
 }
 
 .item div.manga-item {
@@ -104,7 +120,7 @@ h2{
   padding: 6px;
   margin-top: 8px;
   margin-right: -90px;
-  border: none;
+  border-color: #000000;
   font-size: 17px;
 }
 
@@ -216,12 +232,16 @@ margin-left: -16px;
 
 //popular manga
 
-.container{
+.container-header{
 margin-bottom: 88px;
 }
 
 .popular-manga {
   margin-left: -53px;
+}
+
+.popular-manga-text {
+margin-left: 45px;
 }
 
 .popular-title img {
@@ -245,10 +265,15 @@ margin-bottom: 88px;
   margin-right: -180px;
 }
 
+.feature-title {
+margin-left: 45px;
+}
+
 .recent_nav {
   overflow: hidden;
   background-color: #828282;
-  margin-right: 142px;
+  margin-right: 101px;
+  margin-left: 45px;
 }
 
 .recent_nav a {
@@ -335,8 +360,8 @@ margin-bottom: 88px;
   line-height: 75px;
   color: #FFFFFF;
 }
-.card-body
-{
+.card-body {
+  width: 500px;
   padding-top: 3px;
   padding-bottom: 58px;
   padding-left: 15px;
@@ -527,7 +552,8 @@ ul {
 }
 
 .navbar.navbar {
-  margin-bottom: -90px;
+  margin-bottom: 0px;
+  height: 100px;
 }
 
 @media (max-width: 991px) {
@@ -548,10 +574,6 @@ ul {
   color: #ffffff;
 }
 
-h6 {
-  line-height: 1.7;
-}
-
 .text-login{
   color: #ffffff;
 }
@@ -565,6 +587,7 @@ h6 {
 
 .mask.rgba-gradient.d-flex.justify-content-center.align-items-center {
   margin-bottom: -40px;
+  margin-top: 14px;
 }
 
 .inline-ul.text-center.d-flex.justify-content-center img {
@@ -576,6 +599,7 @@ h6 {
 
 .h1-responsive.font-weight-bold.wow.fadeInLeft {
   margin-top: 97px;
+  margin-left: -500px;
 }
 
 .form-control {
@@ -772,5 +796,44 @@ h6 {
 }
 
 .card.wow.fadeInRight {
-  margin-right: -60px;
+  margin-right: -457px;
 }
+
+/*============== footer-area css ===============*/
+.footer-area{
+    background: #f9f9ff;
+  padding-top: 120px;
+}
+.single-footer-widget{
+    p{
+        margin-bottom: 0px;
+    font-size: 14px;
+    }
+    ul{
+        li{
+            a{
+                line-height: 25px;
+                display: inline-block;
+                color: #777;
+                transition: all 0.3s linear;
+                margin-bottom: 13px;
+        font-size: 14px;
+                &:hover{
+                    color: #000000;
+                }
+            }
+        }
+    }
+}
+
+
+.footer {
+  margin-top: 100px;
+}
+.col-lg-8.col-md-8.footer-text.m-0 {
+  margin-left: 100px;
+ }
+ .col-lg-4.col-md-4.footer-social {
+  margin: -195px;
+   word-spacing: 20px;
+ }

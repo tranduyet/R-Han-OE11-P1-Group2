@@ -1,67 +1,67 @@
-<div class="" id="slider">
-    <div id="mainslider" class="owl-carousel owl-theme">
-      <div class="item">
-        <div class="manga-item">
-          <div class="manga-item-img">
-           <%= link_to image_tag("9.jpg", alt: "") %>
+<div class="container-body" style="margin-top: 30px;">
+  <div class="" id="slider" style="margin-bottom: 15px;">
+      <div id="mainslider" class="owl-carousel owl-theme">
+        <div class="item">
+          <div class="manga-item">
+            <div class="manga-item-img">
+             <%= link_to image_tag("9.jpg", alt: "") %>
+            </div>
+            <div class="manga-item-text">
+            </div>
           </div>
-          <div class="manga-item-text">
+        </div>
+        <div class="item">
+          <div class="manga-item">
+            <div class="manga-item-img">
+             <%= link_to image_tag("13.jpg", alt: "") %>
+            </div>
+            <div class="manga-item-text">
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="manga-item">
+            <div class="manga-item-img">
+             <%= link_to image_tag("12.jpg", alt: "") %>
+            </div>
+            <div class="manga-item-text">
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="manga-item">
+            <div class="manga-item-img">
+             <%= link_to image_tag("10.jpg", alt: "") %>
+            </div>
+            <div class="manga-item-text">
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="manga-item">
+            <div class="manga-item-img">
+             <%= link_to image_tag("11.jpg", alt: "") %>
+            </div>
+            <div class="manga-item-text">
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="manga-item">
+            <div class="manga-item-img">
+             <%= link_to image_tag("5.jpg", alt: "") %>
+            </div>
+            <div class="manga-item-text">
+            </div>
           </div>
         </div>
       </div>
-      <div class="item">
-        <div class="manga-item">
-          <div class="manga-item-img">
-           <%= link_to image_tag("13.jpg", alt: "") %>
-          </div>
-          <div class="manga-item-text">
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="manga-item">
-          <div class="manga-item-img">
-           <%= link_to image_tag("12.jpg", alt: "") %>
-          </div>
-          <div class="manga-item-text">
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="manga-item">
-          <div class="manga-item-img">
-           <%= link_to image_tag("10.jpg", alt: "") %>
-          </div>
-          <div class="manga-item-text">
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="manga-item">
-          <div class="manga-item-img">
-           <%= link_to image_tag("11.jpg", alt: "") %>
-          </div>
-          <div class="manga-item-text">
-          </div>
-        </div>
-      </div>
-      <div class="item">
-        <div class="manga-item">
-          <div class="manga-item-img">
-           <%= link_to image_tag("5.jpg", alt: "") %>
-          </div>
-          <div class="manga-item-text">
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
-</div>
-<div class="container" style="margin-top: 40px;">
   <div class="row">
     <div class="col-md-3">
       <div class="popular-manga">
-        <table class="popular-title-top">POPULAR MANGA
+        <table class="popular-title-top">
+          <div class="popular-manga-text">POPULAR MANGA</div>
           <ul class="abc">
           <% @mangaks.each do |mangak| %>
           <div class="popular-title">
@@ -81,8 +81,8 @@
     <div class="col-md-6">
       <div class="recent_nav">
       <%= link_to "Recent update", "#" %>
-      <%= link_to "Hot update", "#" %>
-      <%= link_to "New posts", "#" %>
+      <%= link_to t("manga_hot"), mangak_hot_path %>
+      <%= link_to "New posts", mangaks_path %>
       </div>
       <div class="wrap_update home">
         <div class="update_item">

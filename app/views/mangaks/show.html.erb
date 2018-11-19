@@ -1,7 +1,7 @@
 <% if can? :manage, :all %>
 
 <div data-spy="scroll" data-target="#myScrollspy" data-offset="8"
-    style="height:200px;width: 80%;overflow-y: scroll;padding:5px; border: solid #ccc">
+    style="height:200px;width: 80%;overflow-y: scroll;padding:5px; border: solid #ccc;margin-left: 117px; margin-top: 15px;">
   <table>
     <tr class="chapters">
       <th class="col-md-9 col-md-offset-4" style="color:green;font-size: 120%">
@@ -96,40 +96,42 @@
   </div>
 <% end %>
 
-  <div class="show_comment">
-    <h3>comments (<%= @mangak.comments.count %>)</h3>
-    <ul class="comments">
-      <% @comments.each do |comment| %>
-        <li id="comment-<%= comment.id %>">
-          <%= link_to gravatar_for(comment.user, size: 50), comment.user %>
-          <span class="user"><%= link_to comment.user.name, comment.user %></span>
-          <span class="content"><%= comment.content %></span>
-          <span class="timestamp">
-          <%= t ".posted" %> <%= time_ago_in_words(comment.created_at) %> <%= t ".ago" %>
-          <% if user_signed_in? %>
-            <% if current_user.admin? || (current_user == comment.user) %>
-              <%= link_to t(".delete"), comment, method: :delete,
-                data: {confirm: t(".sure")} %>
-              <% end %>
-              <!-- reply -->
-              <span class="btn-reply">
-                (<%= Comment.where(parent_id: comment.id).size %>)
-                Reply
-              </span>
-              <%= form_for(@comment, remote: true) do |f| %>
-                <div class="comment_form" style="display: flex">
-                  <%= render "shared/error_messages", object: f.object %>
-                  <div class="field" style="width: 700px;height: 50px">
-                    <%= f.text_area :content, placeholder: "Reply..." %>
-                  </div>
-                  <%= f.hidden_field :user_id, value: current_user.id %>
-                  <%= f.hidden_field :user_comment_id, value: params[:id] %>
-                  <%= f.submit "Reply", class: "btn btn-primary" %>
-                </div>
-              <% end %>
+<div class="show_comment">
+  <h3>comments (<%= @mangak.comments.count %>)</h3>
+  <ul class="comments">
+    <% @comments.each do |comment| %>
+      <li id="comment-<%= comment.id %>">
+        <%= link_to gravatar_for(comment.user, size: 50), comment.user %>
+        <span class="user"><%= link_to comment.user.name, comment.user %></span>
+        <span class="content"><%= comment.content %></span>
+        <span class="timestamp">
+        <%= t ".posted" %> <%= time_ago_in_words(comment.created_at) %> <%= t ".ago" %>
+        <% if user_signed_in? %>
+          <% if current_user.admin? || (current_user == comment.user) %>
+            <%= link_to t(".delete"), comment, method: :delete,
+              data: {confirm: t(".sure")} %>
             <% end %>
-          </span>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+            <!-- reply -->
+            <span class="btn-reply">
+              (<%= Comment.where(parent_id: comment.id).size %>)
+              Reply
+            </span>
+            <%= form_for @comment do |f| %>
+              <div class="comment_form" style="display: flex">
+                <%= render "shared/error_messages", object: f.object %>
+                <div class="field" style="width: 700px;height: 50px">
+                  <%= f.text_area :content, placeholder: "Reply..." %>
+                </div>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+                <%= f.hidden_field :mangak_id, value: params[:id] %>
+                <%= f.hidden_field :parent_id, value: comment.id %>
+                <%= f.submit "Reply", class: "btn btn-primary" %>
+              </div>
+            <% end %>
+          <% end %>
+        </span>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<% end %>

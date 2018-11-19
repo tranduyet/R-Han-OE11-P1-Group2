@@ -11,12 +11,19 @@
       <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
   </head>
   <body>
+    <header>
     <%= render "layouts/header" %>
-    <div class="container">
-      <% flash.each do |message_type, message| %>
-        <%= content_tag :div, message, class: "alert alert-#{message_type}" %>
-      <% end %>
-    <%= yield %>
-    </div>
+    </header>
+    <main>
+      <div class="container">
+        <% flash.each do |message_type, message| %>
+          <%= content_tag :div, message, class: "alert alert-#{message_type}" %>
+        <% end %>
+      <%= yield %>
+      </div>
+    </main>
+    <footer>
+      <%= render "layouts/footer" %>
+    </footer>
   </body>
 </html>
