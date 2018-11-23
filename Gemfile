@@ -16,7 +16,6 @@ gem "turbolinks", "5.0.1"
 gem "jbuilder", "2.7.0"
 gem "config"
 gem "bcrypt" , "3.1.12"
-gem "ffaker"
 gem "chartkick"
 gem "closure_tree"
 gem "kaminari"
@@ -36,8 +35,11 @@ gem "devise"
 gem "omniauth-facebook"
 
 group :development, :test do
+  gem "ffaker"
   gem "sqlite3", "1.3.13"
   gem "byebug", "9.0.6", platform: :mri
+  gem "rspec-rails"
+  gem "factory_bot_rails"
 end
 
 group :development do
@@ -53,6 +55,8 @@ group :test do
   gem "minitest-reporters", "1.1.14"
   gem "guard", "2.13.0"
   gem "guard-minitest", "2.4.4"
+  gem "shoulda-matchers", "~> 3.1"
+  gem "database_cleaner"
 end
 
 group :production do

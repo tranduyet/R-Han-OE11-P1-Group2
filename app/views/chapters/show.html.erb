@@ -1,27 +1,33 @@
-<div class="abc">
-  <% @next_chapter.select do |f| %>
-  <% if f.id = @chapter.id + 1 %>
-    <%= link_to "next", mangak_chapter_path(f.mangak, f) %>
-  <% end %>
-  <% end %>
-  <% @next_chapter.select do |f| %>
-  <% if f.id = @chapter.id - 1 %>
-    <%= link_to "previous", mangak_chapter_path(f.mangak, f) %>
-  <% end %>
-  <% end %>
-</div>
 <div class="col-md-4 col-md-offset-2">
-  <div class="dropdown">
-    <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" style="width:200px">
-    <%= @chapter.name_chapter %>
-    </button>
-    <ul class="dropdown-menu">
-      <% @mangak.chapters.each do |chapter| %>
-      <li>
-        <%= link_to chapter.name_chapter, mangak_chapter_path(chapter.mangak, chapter) %>
-      </li>
-      <% end %>
-    </ul>
+  <div class="navbar-oneline" style="display: flex;">
+    <div class="dropdown">
+      <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown" style="width:200px">
+      <%= @chapter.name_chapter %>
+      </button>
+      <ul class="dropdown-menu">
+        <% @mangak.chapters.each do |chapter| %>
+        <li>
+          <%= link_to chapter.name_chapter, mangak_chapter_path(chapter.mangak, chapter) %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="pre-next">
+      <div class="col-md-1 col-md-offset-1" style="margin-left: -11px;">
+        <% @next_chapter.select do |f| %>
+        <% if f.id == @chapter.id - 1 %>
+          <%= link_to "previous", mangak_chapter_path(f.mangak, f) %>
+        <% end %>
+        <% end %>
+      </div>
+      <div class="col-md-1 col-md-offset-1" style="margin-left: 50px;">
+        <% @next_chapter.select do |f| %>
+        <% if f.id == @chapter.id + 1 %>
+          <%= link_to "next", mangak_chapter_path(f.mangak, f) %>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
   <p class="name_chapter" style="color: green; margin-bottom: 30px;font-size: 120% ">
     <strong><%= link_to @mangak.name, mangak_path(@mangak) %></strong>

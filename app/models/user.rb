@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  has_many :mangak
+  validates :name, presence: true
+  validates :email, presence: true
   has_many :comments, dependent: :destroy
   has_many :active_relationships, class_name:  "Relationship", foreign_key: "follower_id",
     dependent: :destroy
@@ -28,7 +29,4 @@ class User < ApplicationRecord
   def following? mangak
     following.include? mangak
   end
-
-  def current_user?
-    user_id == current_user.id
-  end
+end

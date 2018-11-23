@@ -12,7 +12,7 @@ class Mangak < ApplicationRecord
   validates :author_id, presence: true
   validates :genre_id, presence: true
   mount_uploader :picture, PictureUploader
-  validates :picture, presence: true
+  # validates :picture, presence: true
   is_impressionable counter_cache: true
 
   scope :search_manga, -> (mangak_name) {where("name LIKE ?", "%#{mangak_name}%")}

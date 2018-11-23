@@ -1,5 +1,5 @@
 class MangaksController < ApplicationController
-  impressionist actions: [:show,:index]
+  impressionist actions: [:show]
 
   def new
     @mangak = Mangak.new

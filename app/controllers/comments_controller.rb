@@ -2,10 +2,11 @@ class CommentsController < ApplicationController
   before_action :correct_user, only: :destroy
 
   def new
-    @comment = Comment.new(parent_id: params[:parent_id])
+    @comment = Comment.new
   end
 
   def create
+    @supports = Supports::Post.new @post
     @comment = Comment.new comment_params
     @mangak = @comment.mangak
     if @comment.save
@@ -22,7 +23,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content, :user_id, :mangak_id)
+    params.require(:comment).permit :content, :user_id, :mangak_id, :parent_id
   end
 
   def correct_user
